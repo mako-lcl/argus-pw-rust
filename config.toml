@@ -1,0 +1,8 @@
+use_uppercase = true
+use_lowercase = true
+use_digits = true
+use_special = true
+uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+lowercase = "abcdefghijklmnopqrstuvwxyz"
+digits = "0123456789"
+special = '''!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~'''
