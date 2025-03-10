@@ -1,6 +1,6 @@
 [package]
 name = "argus-pw-rust"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["LCL"]
 description = "A CLI tool for generating passwords."
 repository = "https://github.com/mako-lcl/argus-pw-rust"

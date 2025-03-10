@@ -17,7 +17,15 @@ pub enum Commands {
     // -- Generates password of length.
     Gen {
         length: u32,
-        #[arg(short, long)]
+
+        #[arg(
+            short,
+            long,
+            help = "Additionally sets up character sets for generation"
+        )]
         setup: bool,
+
+        #[arg(short, long, help = "Displays the generated password in console")]
+        display: bool,
     },
 }

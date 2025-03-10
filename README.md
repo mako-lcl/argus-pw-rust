@@ -10,5 +10,6 @@ Arguments:
 <LENGTH>
 
 Options:
--s, --setup
+-s, --setup Additionally sets up character sets for generation
+-d, --display Displays the generated password in console
 -h, --help Print help

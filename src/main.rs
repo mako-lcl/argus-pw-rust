@@ -14,7 +14,11 @@ fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        Commands::Gen { length, setup } => {
+        Commands::Gen {
+            length,
+            setup,
+            display,
+        } => {
             println!("Generating password of length {}", length);
 
             // -- load config
@@ -26,7 +30,9 @@ fn main() {
             // -- gen pw
             let pw = generate_password(config, *length);
 
-            println!("{}", pw);
+            if *display {
+                println!("{}", pw);
+            }
 
             // Set the contents of the clipboard.
             set_contents(pw.to_owned()).expect("Failed copying to clipboard!");
