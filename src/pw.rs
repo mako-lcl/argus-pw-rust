@@ -1,7 +1,9 @@
 use crate::config::Config;
+use anyhow::Result;
+use anyhow::anyhow;
 use rand::Rng;
 
-pub fn generate_password(config: Config, length: u32) -> String {
+pub fn generate_password(config: Config, length: u32) -> Result<String> {
     // -- load usable characters
     let mut characters = String::new();
 
@@ -22,7 +24,7 @@ pub fn generate_password(config: Config, length: u32) -> String {
     }
 
     if characters.is_empty() {
-        panic!("No characters for password generation selected!")
+        return Err(anyhow!("No characters for password generation selected!"));
     }
 
     // -- loop and create pw
@@ -37,5 +39,5 @@ pub fn generate_password(config: Config, length: u32) -> String {
         pw.push(random_char);
     }
 
-    pw
+    Ok(pw)
 }
