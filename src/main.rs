@@ -1,5 +1,6 @@
 use clap::Parser;
 use cli::{Cli, Commands};
+use cli_clipboard::set_contents;
 use config::Config;
 use pw::generate_password;
 use setup::setup_config;
@@ -26,6 +27,12 @@ fn main() {
             let pw = generate_password(config, *length);
 
             println!("{}", pw);
+
+            // Set the contents of the clipboard.
+            set_contents(pw.to_owned()).expect("Failed copying to clipboard!");
+            assert_eq!(cli_clipboard::get_contents().unwrap(), pw);
+
+            println!("Password copied to clipboard");
         }
     }
 }
